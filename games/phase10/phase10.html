@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Phase 10 Scorecard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+    <script type="text/javascript" src="../../script/jquery.min.js"></script>
+    <script type="text/javascript" src="../../script/angular.min.js"></script>
+    <script type="text/javascript" src="../../script/bootstrap.min.js"></script>
+    <script type="text/javascript" src="phase10.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../style/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../../style/bootstrap-theme.css"/>
+    <style type="text/css">
+    .row {
+    margin-top: .5em;
+    }
+    </style>
+    
+  </head>
+  <body>
+    <div class="container" ng-app='PhaseTenApp' ng-controller="PhaseTenAppCtrl">
+      <div id='score_card' class='col-xs-12 col-sm-8'>
+        <!--ROUND ONE-->
+        <table class="table">
+          <tr>
+            <td colspan="2">
+              <h2>Phase 10 Scorecard</h2>
+            </td>
+          </tr>
+          <tr><td><span class="phase_description">2 Sets of 3</span></td>
+            <td><input class="input form-control" type="number" pattern="\d*" ng-model='phase_1' ng-change="updateTotals()"/></td>
+          </tr>
+          <tr><td><span class="phase_description">1 Set of 3 & 1 run of 4</span></td>
+            <td><input class="input form-control" type="number" pattern="\d*" ng-model='phase_2' ng-change="updateTotals()"/></td>
+          </tr>
+          <tr><td><span class="phase_description">1 Set of 4 & 1 run of 4</span></td>
+            <td><input class="input form-control" type="number" pattern="\d*" ng-model='phase_3' ng-change="updateTotals()" /></td>
+          </tr>
+          <tr><td><span class="phase_description">1 run of 7</span></td>
+            <td><input class="input form-control" type="number" pattern="\d*" ng-model='phase_4' ng-change="updateTotals()"/></td>
+          </tr>
+          <tr><td><span class="phase_description">1 run of 8</span></td>
+            <td><input class="input form-control" type="number" pattern="\d*" ng-model='phase_5' ng-change="updateTotals()"/></td>
+          </tr>
+          <tr><td><span class="phase_description">1 run of 9</span></td>
+            <td><input class="input form-control" type="number" pattern="\d*" ng-model='phase_6' ng-change="updateTotals()"/></td>
+          </tr>
+          <tr><td><span class="phase_description">2 Sets of 4</span></td>
+            <td><input class="input form-control" type="number" pattern="\d*" ng-model='phase_7' ng-change="updateTotals()"/></td>
+          </tr>
+          <tr><td><span class="phase_description">7 of all one color</span></td>
+            <td><input class="input form-control" type="number" pattern="\d*" ng-model='phase_8' ng-change="updateTotals()"/></td>
+          </tr>
+          <tr><td><span class="phase_description">1 set of 5 & 1 set of 2</span></td>
+            <td><input class="input form-control" type="number" pattern="\d*" ng-model='phase_9' ng-change="updateTotals()"/></td>
+          </tr>
+          <tr><td><span class="phase_description">1 set of 5 & 1 set of 3</span></td>
+            <td><input class="input form-control" type="number" pattern="\d*" ng-model='phase_10' ng-change="updateTotals()"/></td>
+          </tr>
+          
+          <tr ng-show="phase_10 > 0">
+            <td><span class="phase_description">Did you finish first?</span></td>
+            <td>
+              <button class="col-xs-6" ng-click="finishedFirstBonus()">Yes</button>
+              <button class="col-xs-6" ng-click="clearFinishedFirstBonus()">No</button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">Totals</td>
+          </tr>
+          <tr>
+            <td>First Round</td>
+            <td><input class="input form-control" type="number" pattern="\d*" ng-model="result_round_1" readonly="true" />
+            </td>
+          </tr>
+          <tr ng-if="round_one_bonus > 0">
+            <td>First Round Bonus</td>
+            <td><input class="input form-control" type="number" pattern="\d*" ng-model="round_one_bonus" readonly="true"/>
+            </td>
+          </tr>
+          <tr>
+            <td>Second Round</td>
+            <td><input class="input form-control" type="number" pattern="\d*" ng-model="result_round_2" readonly="true"/>
+            </td>
+          </tr>
+          <tr>
+            <td>Final Score</td>
+            <td><input class="input form-control" type="number" pattern="\d*" ng-model="result_final" readonly="true"/>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
