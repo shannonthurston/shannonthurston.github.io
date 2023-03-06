@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script type="text/javascript" src="../../script/jquery.min.js"></script>
+    <script type="text/javascript" src="../../script/angular.min.js"></script>
+    <script type="text/javascript" src="../../script/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../style/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../../style/bootstrap-theme.css"/>
+
+    <script type="text/javascript" src="tic-tac-toe.js"></script>
+    
+    <style type="text/css">
+      
+      .tic-tac {
+        width: 100%;
+        height: 100%;
+      }
+      
+      .ttt_pic {
+        width: 10rem;
+       // border: 1px solid black;
+      }
+      
+      .ttt_row:nth-child(even) {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+      }
+      .ttt_col:nth-child(even) {
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+      }
+      
+    </style>
+    
+    
+  </head>
+  <body>
+    <div class="container" ng-app='TicTacToeApp' ng-controller="TicTacToeAppCtrl">
+      
+      <div class="col-xs-12">
+      <div class="row">
+        <img ng-src="{{activePlayer}}" ng-click="togglePlayer()" class="ttt_pic" />
+        <button ng-click="resetBoard()">RESET </button>
+        <h2 ng-if="winner == true">Winner</h2>
+      </div>
+      
+      <div class="row">
+        <h1 class="text-center">Tic Tac Toe</h1>
+      </div>
+      <div ng-repeat="row in gameBoard" class="row ttt_row">
+      <div ng-repeat="col in row track by $index" class="col-xs-4 text-center ttt_col">
+        <img ng-src='{{col}}' class="ttt_pic {{$parent.$index}} - {{$index}}" ng-click="clickBox($parent.$index, $index)" />
+      </div>
+      </div>
+      </div>
+      
+      
+    </div>
+  </body>
+</html>
