@@ -1,78 +1,46 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>shannonthurston.github.io</title>
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        
-        <script type="text/javascript" src="./script/jquery.min.js"></script>
-        <script type="text/javascript" src="./script/angular.min.js"></script>
-        <script type="text/javascript" src="./script/bootstrap.min.js"></script>
-        <script type="text/javascript" src="./script/app_myGitHubIO.js"></script>
-        <link rel="stylesheet" type="text/css" href="./style/bootstrap.css"/>
-        <link rel="stylesheet" type="text/css" href="./style/bootstrap-theme.css"/>
-        
-        <style>
-        body {
-        height: 100%;
-        }
-        html {
-        height: 100%;
-        }
-        
-        #body_container_outer {
-        background: #ccc;
-        height: 100%;
-        width: 100%;
-        }
-        
-        #body_container_inner {
-        background: white;
-        height: 100%;
-        }
-        
-        #header {
-        }
-        #content {
-        min-height: 70%;
-        }
-        #footer {
-        }
-        </style>
-    </head>
-    <body>
-        <div id='body_container_outer' class='container-fluid' ng-app="myGitHubIOApp" ng-controller="myGitHubIOAppCtrl">
-            <div id='body_container_inner' class='container'>
-                <div id='header' class='row'>
-                    <div class="col-xs-12">
-                        <div class="page-header">
-                            <h1>Shannon Thurston <small>shannonthurston.github.io</small></h1>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id='content' class='row'>
-                    <div class="col-xs-12">
-                        
+<html lang="en" class="h-100 w-100">
+  <head>
+    <title>shannonthurston.github.io</title>
 
-            <main-category-card href="./games/phase10/phase10.html" name="Phase 10 Scorecard"/>
-                        
-                    
-                        
-                    </div>
-                </div>
-                
-                <div id='footer' class='row'>
-                    <div class="col-xs-12 text-center">
-                        
-                        &copy; 2017 Shannon Thurston
-                        
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-    </body>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <script type="text/javascript" src="./script/jquery.min.js"></script>
+    <script type="text/javascript" src="./script/angular.min.js"></script>
+    <script type="text/javascript" src="./script/app_myGitHubIO.js"></script>
+    <script type="text/javascript" src="./script/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="./style/mainStyle.css" />
+  </head>
+
+  <body
+    ng-app="myGitHubIOApp"
+    ng-controller="myGitHubIOAppCtrl as MC"
+    class="d-flex flex-column h-100 w-100"
+  >
+    <header
+      class="d-flex flex-wrap border-bottom"
+    >
+
+    <h1>Shannon Thurston <small>shannonthurston.github.io</small></h1>
+    
+  
+  
+  </header>
+
+    <main>
+      <div class="container">
+        <main-category-card  ng-repeat="info in appsObj" info="info"></main-category-card>
+      </div>
+    </main>
+
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="col-xs-12 text-center">
+        &copy; {{data.year}} Shannon Thurston
+      </div>
+    </footer>
+  </body>
 </html>

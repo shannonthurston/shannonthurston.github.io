@@ -1,29 +1,44 @@
 var app = angular.module('myGitHubIOApp',[]);
 app.controller('myGitHubIOAppCtrl', ['$scope', function($scope){
+
+   let MC = this;
     
     $scope.data = {};
-    d = $scope.data;
-    d.test = 'test value';
+    let d = $scope.data;
+    d.year = new Date().getFullYear();    
     
-    
-    
-    
-}]);
-app.directive("mainCategoryCard", function() {
 
-var tmplt =  "<div class='col-xs-6 col-sm-4'>";
-tmplt += "<div class='thumbnail text-center'>";
-tmplt += "<a href='{{href}}'>{{name}}</a>";
-tmplt += "</div></div>";
-  
+    $scope.appsObj = {};
+
+    $scope.appsObj.phase_10 = {
+            name: "Phase 10",
+            href: "./games/phase10/phase10.html"
+        }
+
+    $scope.appsObj.tic_tac_toe = {
+            name: "Tic Tac Toe",
+            href: "./games/ttt/ticTacToe.html"
+        }
+
+    $scope.appsObj.google = {
+            name: "Google",
+            href: "https://www.google.com"
+        }
+    
+
+}]);
+
+app.directive("mainCategoryCard", function() {
   
     return {
-        template : tmplt,
-        link: function(scope, elem, attrs) {
-            scope.href = attrs.href;
-            scope.name = attrs.name;
-            
-            console.log('scope.href: ' + scope.href);
+        templateUrl: "templates/app_link.html",
+        scope: {
+            app : '=info'
         }
+        
     };
 });
+
+
+
+
