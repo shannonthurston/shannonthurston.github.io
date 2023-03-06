@@ -1,0 +1,30 @@
+header {
+    margin-bottom: 2rem;
+    background-color: rgba(20,20,20,.75);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+header h1 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header h1 small {
+    color: rgba(200,200,200,.75);
+}
+
+main {
+    margin-top: 2rem;
+}
+
+.main_card_container {
+    min-width: 100px;
+    min-height: 50px;
+    background-color: #ddd;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    padding: 1rem;
+    float: left;
+    clear: right;
+}
