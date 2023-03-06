@@ -17,13 +17,10 @@ app.controller('myGitHubIOAppCtrl', ['$scope', function($scope){
 
     $scope.appsObj.tic_tac_toe = {
             name: "Tic Tac Toe",
-            href: "./games/ttt/ticTacToe.html"
+            href: "./games/tic-tac-toe/tic-tac-toe.html"
         }
 
-    $scope.appsObj.google = {
-            name: "Google",
-            href: "https://www.google.com"
-        }
+  
     
 
 }]);
