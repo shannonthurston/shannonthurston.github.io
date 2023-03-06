@@ -15,6 +15,11 @@ app.controller('myGitHubIOAppCtrl', ['$scope', function($scope){
             href: "./games/phase10/phase10.html"
         }
 
+    $scope.appsObj.phase_10 = {
+            name: "Tic Tac Toe",
+            href: "./games/ttt/ticTacToe.html"
+        }
+
     $scope.appsObj.google = {
             name: "Google",
             href: "https://www.google.com"
