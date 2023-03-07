@@ -1,62 +1,111 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <script type="text/javascript" src="../../script/jquery.min.js"></script>
-    <script type="text/javascript" src="../../script/angular.min.js"></script>
-    <script type="text/javascript" src="../../script/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../../style/bootstrap.css"/>
-    <link rel="stylesheet" type="text/css" href="../../style/bootstrap-theme.css"/>
 
-    <script type="text/javascript" src="tic-tac-toe.js"></script>
-    
-    <style type="text/css">
-      
-      .tic-tac {
-        width: 100%;
-        height: 100%;
-      }
-      
-      .ttt_pic {
-        width: 10rem;
-       // border: 1px solid black;
-      }
-      
-      .ttt_row:nth-child(even) {
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
-      }
-      .ttt_col:nth-child(even) {
-        border-left: 1px solid black;
-        border-right: 1px solid black;
-      }
-      
-    </style>
-    
-    
-  </head>
-  <body>
-    <div class="container" ng-app='TicTacToeApp' ng-controller="TicTacToeAppCtrl">
-      
-      <div class="col-xs-12">
-      <div class="row">
-        <img ng-src="{{activePlayer}}" ng-click="togglePlayer()" class="ttt_pic" />
-        <button ng-click="resetBoard()">RESET </button>
-        <h2 ng-if="winner == true">Winner</h2>
-      </div>
-      
-      <div class="row">
-        <h1 class="text-center">Tic Tac Toe</h1>
-      </div>
-      <div ng-repeat="row in gameBoard" class="row ttt_row">
-      <div ng-repeat="col in row track by $index" class="col-xs-4 text-center ttt_col">
-        <img ng-src='{{col}}' class="ttt_pic {{$parent.$index}} - {{$index}}" ng-click="clickBox($parent.$index, $index)" />
-      </div>
-      </div>
-      </div>
-      
-      
+<head>
+  <title>Tic Tac Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script type="text/javascript" src="../../script/jquery.min.js"></script>
+  <script type="text/javascript" src="../../script/angular.min.js"></script>
+  <script type="text/javascript" src="../../script/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../style/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="../../style/bootstrap-theme.css" />
+
+  <script type="text/javascript" src="tic-tac-toe.js"></script>
+
+  <style type="text/css">
+    .tic-tac {
+      width: 100%;
+      height: 100%;
+    }
+
+    #gameBoard {
+      display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+
+    }
+
+    .ttt-cell {
+      min-width: 10rem;
+      max-width: 15rem;
+      min-height: 10rem;
+      max-height: 15rem;
+      float: left;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: xxx-large;
+      font-family: sans-serif;
+      border: 1px solid gray;
+      margin: 0;
+      padding: 0;
+    }
+
+    .ttt-row {
+      display: flex;
+      justify-content: center;
+      clear: both;
+    }
+
+    header {
+      margin: 2rem;
+    }
+
+    header div span {
+      display: flex;
+      align-items: center;
+    }
+
+    header div span button {
+      margin-left: auto;
+    margin-right: auto;
+    }
+
+    .header_row {
+      min-height: 50px;
+    }
+
+  </style>
+
+
+</head>
+
+<body>
+
+  <div id="gameBoard" class="container" ng-app='TicTacToeApp' ng-controller="TicTacToeAppCtrl">
+<header>
+
+<div class="row header_row">
+  <span class="col-4">
+    Active Player: <span ng-bind="activePlayer" ng-click="togglePlayer()" class="">{{activePlayer}}</span>
+  </span>
+ <span class="col-4">
+  <button ng-click="resetBoard()">RESET </button>
+ </span>
+  <span class="col-4">
+    <h2 ng-if="winner == true">Winner</h2>
+  </span>
+  </div>
+</header>
+   
+
+  <div class="row">
+    <h1 class="text-center">Tic Tac Toe</h1>
+  </div>
+  <div ng-repeat="roww in gameBoard" class="ttt-row">
+
+    <div ng-repeat="coll in roww track by $index" class="ttt-cell ttt_col">
+      <span class="ttt-cell" ng-click="clickBox($parent.$index, $index)">
+        {{coll}}
+      </span>
+
+
     </div>
-  </body>
+
+
+  </div>
+
+</body>
+
 </html>

@@ -1,16 +1,16 @@
  var app = angular.module('TicTacToeApp', []);
  app.controller('TicTacToeAppCtrl', function($scope) {
 
-     $scope.playerOh = 'o.png';
-     $scope.playerEx = 'x.png';
-     $scope.nullPic = 'null.png';
+     $scope.playerOh = 'O';
+     $scope.playerEx = 'X';
+     $scope.nullPic = ' ';
 
      $scope.activePlayer = $scope.playerOh;
 
      $scope.gameBoard = [
-         ['null.png', 'null.png', 'null.png'],
-         ['null.png', 'null.png', 'null.png'],
-         ['null.png', 'null.png', 'null.png']
+         [$scope.nullPic, $scope.nullPic, $scope.nullPic],
+         [$scope.nullPic, $scope.nullPic, $scope.nullPic],
+         [$scope.nullPic, $scope.nullPic, $scope.nullPic]
      ]
 
      $scope.resetBoard = function() {
