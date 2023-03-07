@@ -6,9 +6,7 @@ header {
 }
 
 header h1 {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+    margin-left: 1.5rem;
     color: #fff;
     text-shadow: 1px 1px 2px #0303bf;
 }
@@ -38,4 +36,8 @@ main {
     text-align: center;
     font-weight: 600;
     color: #0303bf;
+}
+
+footer {
+    margin-left: 1.5rem;
 }
