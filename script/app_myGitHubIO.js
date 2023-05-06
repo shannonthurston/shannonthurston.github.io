@@ -20,6 +20,11 @@ app.controller('myGitHubIOAppCtrl', ['$scope', function($scope){
             href: "./games/tic-tac-toe/tic-tac-toe.html"
         }
 
+           $scope.appsObj.code_playground = {
+            name: "Tic Tac Toe",
+            href: "./utilities/codePlayground/codePlayground.html"
+        }
+
   
     
 
