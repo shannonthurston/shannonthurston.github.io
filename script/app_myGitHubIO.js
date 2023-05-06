@@ -21,7 +21,7 @@ app.controller('myGitHubIOAppCtrl', ['$scope', function($scope){
         }
 
            $scope.appsObj.code_playground = {
-            name: "Tic Tac Toe",
+            name: "Code Playground",
             href: "./utilities/codePlayground/codePlayground.html"
         }
 
