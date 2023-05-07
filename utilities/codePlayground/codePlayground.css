@@ -5,10 +5,15 @@ body {
     width: 100%;
 }
 
-#preview-window {
-    background-color: #ffffff;
-    color: #000000;
+#preview-window, #editor {
+    background-color: #e0e0e0;
+    color: #0e0e0e;
     height: 100%;
     width: 100%;
-    border: 1px solid wavy red;
+    border: .2rem solid rgb(56, 56, 56);
+    border-radius: .1rem;
+}
+
+.row.justify-content-start > div {
+    margin: 1rem 0;
 }

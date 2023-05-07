@@ -4,31 +4,25 @@ var htmlEditor = CodeMirror(
       mode: "javascript",
       tabSize: 4,
       lineNumbers: true,
-      //extraKeys: { "Ctrl-Space": "autocomplete" },
+      lineWrapping: true,
+      extraKeys: { "Shift-Ctrl-Space": "autocomplete" },
+      keyMap: 'macSublime',
+      dragDrop: true,
+      smartIndent: true,
+      spellcheck: true,
+      autocorrect: true,
+      rulers: true,
+      foldGutter: true,
+      gutters: ["CodeMirror-lint-markers"],
+      lint: {options: {esversion: 2021}},
+
     }
   );
 
 
   CodeMirror.commands["selectAll"](htmlEditor);
 
-  function getSelectedRange() {
-    return {
-      from: htmlEditor.getCursor(true),
-      to: htmlEditor.getCursor(false),
-    };
-  }
-
-  function autoFormatSelection() {
-    var range = getSelectedRange();
-    htmlEditor.autoFormatRange(range.from, range.to);
-  }
-
-  function commentSelection(isComment) {
-    var range = getSelectedRange(),
-      selStart = htmlEditor.getCursor("start");
-    htmlEditor.commentRange(isComment, range.from, range.to);
-    htmlEditor.setSelection(selStart, htmlEditor.getCursor("end"));
-  }
+ 
   document.querySelector("#run-btn").addEventListener("click", function () {
     let htmlCode = htmlEditor.getValue();
 
@@ -43,20 +37,17 @@ var htmlEditor = CodeMirror(
 
 
 function triggerEnterKey(event){
-  console.log(event);
     if (event.keyCode === 13 && event.metaKey) {
         document.querySelector("#run-btn").click();
     }
 }
 
 function evalTheCode(htmlCode) {
-    console.log(htmlCode);
   var res = "";
   try {
     res = eval(htmlCode);
   } catch (e) {
     res = e;
   }
-  console.log(res);
   return res;
 }
