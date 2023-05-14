@@ -5,54 +5,134 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Code Playground</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css" integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/lint/lint.min.css" integrity="sha512-jP1+o6s94WQS9boYeDP3Azh8ihI5BxGgBZNjkABhx05MqH5WuDzfzSnoPxGxVzWi/gxxVHZHvWkdRM6SMy5B0Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css"
+        integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/lint/lint.min.css"
+        integrity="sha512-jP1+o6s94WQS9boYeDP3Azh8ihI5BxGgBZNjkABhx05MqH5WuDzfzSnoPxGxVzWi/gxxVHZHvWkdRM6SMy5B0Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+        integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel='stylesheet' href="codePlayground.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
+        integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jshint/2.13.6/jshint.min.js"
+        integrity="sha512-MCUpdWtSMK1rm+4sWFpfFuz4UTpXEud5p236Otyw1Ea4kdVyNxy+eMHR76u7xfY5DlpDmOzgEhgDq1ZGLHqkCA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"
+        integrity="sha512-8RnEqURPUc5aqFEN04aQEiPlSAdE0jlFS/9iGgUyNtwFnSKCXhmB6ZTNl7LnDtDWKabJIASzXrzD0K+LYexU9g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/javascript/javascript.min.js"
+        integrity="sha512-I6CdJdruzGtvDyvdO4YsiAq+pkWf2efgd1ZUSK2FnM/u2VuRASPC7GowWQrWyjxCZn6CT89s3ddGI+be0Ak9Fg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/lint/lint.min.js"
+        integrity="sha512-fzIkwQa9H8rjoDzpZ9sMOYhgaYwh9nKALWbE1m+7wpiry9PN5OyNcZ9LySotjEysolveRyv2C9pVJ+DbEuKtmQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/lint/javascript-lint.min.js"
+        integrity="sha512-8kwyIAPFqkeXy+ZFifnFBF57n5pSsXBBWuy9ME1hPCku0evC+UFNnWZOJlITFe/OMSxGi/oWaccjZ07L6YXzJA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/matchbrackets.min.js"
+        integrity="sha512-GSYCbN/le5gNmfAWVEjg1tKnOH7ilK6xCLgA7c48IReoIR2g2vldxTM6kZlN6o3VtWIe6fHu/qhwxIt11J8EBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/fold/foldcode.min.js"
+        integrity="sha512-Q2qfEJEU257Qlqc4/5g6iKuJNnn5L0xu2D48p8WHe9YC/kLj2UfkdGD01qfxWk+XIcHsZngcA8WuKcizF8MAHA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/javascript-hint.min.js"
+        integrity="sha512-omIxBxPdObb7b3giwJtPBiB86Mey/ds7qyKFcRiaLQgDxoSR+UgCYEFO7jRZzPOCZAICabGCraEhOSa71U1zFA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/keymap/sublime.min.js"
+        integrity="sha512-SV3qeFFtzcmGtUQPLM7HLy/7GKJ/x3c2PdiF5GZQnbHzIlI2q7r77y0IgLLbBDeHiNfCSBYDQt898Xp0tcZOeA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="/script/angular.min.js"></script>
+
+    <script src="/script/console.js" defer></script>
+
+    <script src="codePlayground.js" defer></script>
+
+
+
+
 </head>
 
-<body id="myBody" class="p-3">
+<body id="myBody" class="container-fluid p-4">
 
-    <div class="row p-3 m-3">
-        <div class="col-xs-12 col-md-8">
-            <h1 class="text-center">Code Playground</h1>
-        </div>
-        <div class="col-xs-12 col-md-4 text-center"> 
-            <button id="run-btn" class="btn btn-primary btn-lg">Run</button>
-        </div>
-    </div>
+    <div id="CodePlaygroundApp" name="CodePlaygroundApp" ng-app="CodePlaygroundApp"
+        ng-controller="CodePlaygroundAppCtrl as c"
+        >
 
-    <div class="container-fluid p-3">
-        <div class="row justify-content-start">
-            <div class="col-xs-12 col-md-8">
-                <div id="editor" class=""></div>
+        <div class="row" ng-click="c.hideHistory($event)">
+            <div id="header" class="col-xs-12 col-sm-7">
+                <div id="run-button">
+                    <h1 class="text-center">Code Playground</h1>
+                </div>
+                <div class="col-xs-12 text-center">
+                    <small>shift-enter to run code or click the header above</small>
+                </div>
             </div>
-            <div class="col-xs-12 col-md-4">
-                <div  id="preview-window" class="p-3">
-                    &nbsp;<br>
+            <div id="buttons" class="col-xs-12 col-sm-5">
+
+
+
+            </div>
+        </div>
+        <div class="row" ng-click="c.hideHistory($event)">
+            <div id="editor_container" class="col-xs-12 col-sm-7">
+                <div id="editor">
+                </div>
+                
+            </div>
+            
+
+            <div id="results_container" class="col-xs-12 col-sm-5">
+                <button id="clear-results" class="btn btn-primary btn-sm">Clear</button>
+                <div id="results" class="col-xs-12">
+                </div>
+            </div>
+            
+
+           
+            <div id="console_container" class="col-sx-12">
+                <label>console</label>
+                <button id="clear-console" class="btn btn-primary btn-sm">Clear</button>
+                <div id="console" class="col-xs-12">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="history_container" class="col-xs-12">
+                <div id="history-button-container" class="col-xs-12 col-sm-2">
+                    <button id="toggle-history-internal" class="btn btn-primary btn-sm " ng-click="c.toggleHistory()">
+                        <label ng-show="c.historyClass == 'hide'">Show History</label>
+                        <label ng-show="c.historyClass == 'show'">Hide History</label>
+                    </button>
+                    <button id="clear-history-internal" class="btn btn-primary btn-sm" ng-class="c.historyClass"
+                        ng-click="c.clearHistory()">
+                        clear
+                    </button>
+                </div>
+                <div id="codeHistory" class="col-xs-12" ng-class="c.historyClass">
+
+                    <div ng-repeat="item in c.codeHistory track by item.name">
+                        <button class="btn btn-danger btn-sm" ng-click="c.loadHistory(item.name)"><span>{{item.name |
+                                date : 'M/d/yy h:mm:ss a'}}</span></button>
+                        <span>
+                            <pre>{{item.value}}</pre>
+                        </span>
+
+                    </div>
 
                 </div>
             </div>
         </div>
     </div>
-
-
-    <div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jshint/2.13.6/jshint.min.js" integrity="sha512-MCUpdWtSMK1rm+4sWFpfFuz4UTpXEud5p236Otyw1Ea4kdVyNxy+eMHR76u7xfY5DlpDmOzgEhgDq1ZGLHqkCA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js" integrity="sha512-8RnEqURPUc5aqFEN04aQEiPlSAdE0jlFS/9iGgUyNtwFnSKCXhmB6ZTNl7LnDtDWKabJIASzXrzD0K+LYexU9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/javascript/javascript.min.js" integrity="sha512-I6CdJdruzGtvDyvdO4YsiAq+pkWf2efgd1ZUSK2FnM/u2VuRASPC7GowWQrWyjxCZn6CT89s3ddGI+be0Ak9Fg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/lint/lint.min.js" integrity="sha512-fzIkwQa9H8rjoDzpZ9sMOYhgaYwh9nKALWbE1m+7wpiry9PN5OyNcZ9LySotjEysolveRyv2C9pVJ+DbEuKtmQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/lint/javascript-lint.min.js" integrity="sha512-8kwyIAPFqkeXy+ZFifnFBF57n5pSsXBBWuy9ME1hPCku0evC+UFNnWZOJlITFe/OMSxGi/oWaccjZ07L6YXzJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/matchbrackets.min.js" integrity="sha512-GSYCbN/le5gNmfAWVEjg1tKnOH7ilK6xCLgA7c48IReoIR2g2vldxTM6kZlN6o3VtWIe6fHu/qhwxIt11J8EBA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/fold/foldcode.min.js" integrity="sha512-Q2qfEJEU257Qlqc4/5g6iKuJNnn5L0xu2D48p8WHe9YC/kLj2UfkdGD01qfxWk+XIcHsZngcA8WuKcizF8MAHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/javascript-hint.min.js" integrity="sha512-omIxBxPdObb7b3giwJtPBiB86Mey/ds7qyKFcRiaLQgDxoSR+UgCYEFO7jRZzPOCZAICabGCraEhOSa71U1zFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/keymap/sublime.min.js" integrity="sha512-SV3qeFFtzcmGtUQPLM7HLy/7GKJ/x3c2PdiF5GZQnbHzIlI2q7r77y0IgLLbBDeHiNfCSBYDQt898Xp0tcZOeA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="codePlayground.js"></script>
-    </div> 
 
 </body>
 
