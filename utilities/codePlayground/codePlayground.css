@@ -1,90 +1,38 @@
 body {
     background-color: #666;
     color: #ddd;
-    height: 100%;
-    width: 100%;
 }
 
 button {
-    margin: 1.5rem 0.5rem;
     box-shadow: .1rem .1rem .1rem #292929;
 }
 
-#clear-console {
+
+button#clear-console,
+button#clear-results {
     float: right;
     clear: both;
 }
-#clear-results {
+
+#clear-history-internal {
     float: right;
-    clear: both;
-}
-
-.CodeMirror {
-    min-height: 400px;
-    resize: vertical;
-    overflow-y: scroll;
-}
-
-CodeMirror-gutters {
-    height: max-content;
-}
-
-div#codeHistory.show {
-    display: block;
     position: absolute;
-    top: 0rem;
-    right: 0;
-    width: 33%;
-    height: 100%;
-    background: black;
-    opacity: 75%;
-    transition:all linear .5s;
-    padding: 2rem;
-    z-index: 1000;
-    overflow-y: scroll;
-}
-
-div#codeHistory.hide {
-    display: block;
-    position: absolute;
-    top: 0rem;
-    right: 0;
-    width: 0%;
-    height: 100%;
-    background: black;
-    opacity: 0%;
-    transition: all linear .5s;
-    padding: 2rem;
-    z-index: -1000;
-}
-
-#history-button-container {
-    display: block;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    opacity: 75%;
-    float: right;
-    z-index: 2000;
+    top: 3rem;
+    right: .5rem;
 }
 
 
-#resultscontainer.success {
+.box-header {
+    padding: .3rem;
+}
+
+
+#results_content.success {
     box-shadow: 0rem 0rem 0.5rem green;
 }
 
-#results_container.error {
+#results_content.error {
     box-shadow: 0rem 0rem 0.5rem red;
-}
-
-
-#run-button-container, #editor {
-    grid-area: 1 / 1 / 2 / 2;
-}
-
-#run-button-container {
-    z-index: 1000;
-    margin: 1rem;
 }
 
 #run-button {
@@ -97,34 +45,34 @@ div#codeHistory.hide {
     transition: all linear .5s;
 }
 
-#editor {
+#editor, #results {
     float: left;
-
+    width: 100%;
+    height: 100%;
 }
 
-
-#editor_container, #console_container {
-    box-shadow: 0rem 0rem 0.5rem #333;
-}
-
-#editor_container {
+#editor_content {
     background-color: #e0e0e0;
     color: #0e0e0e;
     border: .1rem solid rgb(56, 56, 56);
     border-radius: .1rem;
-    display: grid;
-    grid-template-columns: 100% 1fr;
-    grid-template-rows: 100% 1fr;
-
+    resize: horizontal;
 }
 
-#results_container {
+#results_content {
     background-color: #0e0e0e;
     color: #e0e0e0;
     border: .1rem solid rgb(56, 56, 56);
     border-radius: .1rem;
     min-height: 10rem;
     padding: 1rem;
+    resize: horizontal;
+}
+
+.contents {
+    height: 100%;
+    width: 100%;
+    box-shadow: 0rem 0rem 0.5rem #333;
 }
 
 #console_container {
@@ -132,8 +80,6 @@ div#codeHistory.hide {
     color: #0e0e0e;
     border: .1rem solid rgb(56, 56, 56);
     border-radius: .1rem;
-    margin: 2rem 0;
-    padding: 1rem;
 
 }
 
@@ -151,4 +97,68 @@ div#codeHistory.hide {
     border-top: 1px solid #000;
     display: none;
     background: #fff;
+}
+
+.CodeMirror {
+    min-height: 400px;
+    resize: vertical;
+    overflow-y:auto;
+}
+
+.CodeMirror-gutters {
+    height: max-content;
+}
+
+div#codeHistory.show {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    width: 33%;
+    height: 100%;
+    background: black;
+    opacity: 75%;
+    transition:all linear .5s;
+    padding: 2rem;
+    z-index: 1000;
+    overflow-y: scroll;
+}
+
+div#codeHistory.hide {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    width: 0%;
+    height: 100%;
+    background: black;
+    opacity: 0%;
+    transition: all linear .5s;
+    padding: 2rem;
+    z-index: -1000;
+}
+
+#history-button-container {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 85%;
+    float: right;
+    z-index: 2000;
+}
+
+#toggle-history-internal {
+    margin: .5rem;
+}
+
+@media only screen and (max-width: 600px) {
+    div#codeHistory.show {
+        width: 100%;
+    }
+    #CodePlaygroundApp {
+        margin-top: 3rem;
+    }
 }

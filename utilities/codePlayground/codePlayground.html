@@ -16,7 +16,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
         integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel='stylesheet' href="codePlayground.css">
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
         integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
@@ -61,79 +63,90 @@
 
 </head>
 
-<body id="myBody" class="container-fluid p-4">
+<body id="myBody">
 
-    <div id="CodePlaygroundApp" name="CodePlaygroundApp" ng-app="CodePlaygroundApp"
-        ng-controller="CodePlaygroundAppCtrl as c"
-        >
-
-        <div class="row" ng-click="c.hideHistory($event)">
-            <div id="header" class="col-xs-12 col-sm-7">
-                <div id="run-button">
-                    <h1 class="text-center">Code Playground</h1>
+    <div id="CodePlaygroundApp" name="CodePlaygroundApp" ng-app="CodePlaygroundApp"  ng-controller="CodePlaygroundAppCtrl as c">
+       
+        <div class="container">
+            <div class="row row-cols-1" ng-click="c.hideHistory($event)">
+                <div class="col" id="header">
+                    <div id="run-button">
+                        <h1 class="text-center">Code Playground</h1>
+                    </div>
+                    <div class="col text-center">
+                        <small>shift-enter to run code or click the header above</small>
+                    </div>
                 </div>
-                <div class="col-xs-12 text-center">
-                    <small>shift-enter to run code or click the header above</small>
+               
+            </div>
+            <div class="row row-cols-1 row-cols-sm-2 g-3" ng-click="c.hideHistory($event)">
+                <div class="col" id="editor_container" >
+                    <div class="contents" id="editor_content">
+                        <div class="box-header">
+                            Code Editor
+                        </div>
+                        <div id="editor">
+                        </div>
+                    </div>
+                </div>
+                <div class="col" id="results_container">
+                    <div id="results_content" class="contents">
+                        <div class="box-header">
+                            Results
+                            <button id="clear-results" class="btn btn-primary btn-sm">
+                                Clear
+                            </button>
+                        </div>
+                        <div id="results">
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div id="buttons" class="col-xs-12 col-sm-5">
-
-
-
-            </div>
-        </div>
-        <div class="row" ng-click="c.hideHistory($event)">
-            <div id="editor_container" class="col-xs-12 col-sm-7">
-                <div id="editor">
+            <div class="container mt-3" id="console_container">
+                <div class="row row-cols-2 p-2" id="console_header_container">
+                    <label class="col">console</label>
+                    <div class="col">
+                        <button id="clear-console" class="btn btn-primary btn-sm">Clear</button>
+                    </div>
                 </div>
-                
+                <div class="row row-cols-1 p-2"> 
+                    <div class="col" id="console">
+                    </div>
+                </div>
             </div>
             
+            <div class="row row-cols-1">
+                <div id="history_container" class="">
+                    <div id="history-button-container" class="">
+                        <button id="toggle-history-internal" class="btn btn-primary btn-sm "
+                            ng-click="c.toggleHistory()">
+                            <label ng-show="c.historyClass == 'hide'">Show History</label>
+                            <label ng-show="c.historyClass == 'show'">Hide History</label>
+                        </button>
+                        
+                    </div>
+                    <div id="codeHistory" class="col" ng-class="c.historyClass">
+                        <div ng-repeat="item in c.codeHistory track by item.name">
+                            <button class="btn btn-danger btn-sm" ng-click="c.loadHistory(item.name)"><span>
+                                {{item.name | date : 'M/d/yy h:mm:ss a'}}
+                            </span>
+                        </button>
+                            <span>
+                                <pre>{{item.value}}</pre>
+                            </span>
 
-            <div id="results_container" class="col-xs-12 col-sm-5">
-                <button id="clear-results" class="btn btn-primary btn-sm">Clear</button>
-                <div id="results" class="col-xs-12">
-                </div>
-            </div>
-            
-
-           
-            <div id="console_container" class="col-sx-12">
-                <label>console</label>
-                <button id="clear-console" class="btn btn-primary btn-sm">Clear</button>
-                <div id="console" class="col-xs-12">
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div id="history_container" class="col-xs-12">
-                <div id="history-button-container" class="col-xs-12 col-sm-2">
-                    <button id="toggle-history-internal" class="btn btn-primary btn-sm " ng-click="c.toggleHistory()">
-                        <label ng-show="c.historyClass == 'hide'">Show History</label>
-                        <label ng-show="c.historyClass == 'show'">Hide History</label>
-                    </button>
-                    <button id="clear-history-internal" class="btn btn-primary btn-sm" ng-class="c.historyClass"
-                        ng-click="c.clearHistory()">
-                        clear
-                    </button>
-                </div>
-                <div id="codeHistory" class="col-xs-12" ng-class="c.historyClass">
-
-                    <div ng-repeat="item in c.codeHistory track by item.name">
-                        <button class="btn btn-danger btn-sm" ng-click="c.loadHistory(item.name)"><span>{{item.name |
-                                date : 'M/d/yy h:mm:ss a'}}</span></button>
-                        <span>
-                            <pre>{{item.value}}</pre>
-                        </span>
+                        </div>
+                        <button id="clear-history-internal" class="btn btn-primary btn-sm" ng-class="c.historyClass"
+                            ng-click="c.clearHistory()">
+                            clear
+                        </button>
 
                     </div>
-
                 </div>
             </div>
         </div>
-    </div>
 
+    </div>
 </body>
 
 </html>
