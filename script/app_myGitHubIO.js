@@ -20,9 +20,14 @@ app.controller('myGitHubIOAppCtrl', ['$scope', function($scope){
             href: "./games/tic-tac-toe/tic-tac-toe.html"
         }
 
-           $scope.appsObj.code_playground = {
+    $scope.appsObj.code_playground = {
             name: "Code Playground",
             href: "./utilities/codePlayground/codePlayground.html"
+        }
+
+    $scope.appsObj.audio_visualizer = {
+            name: "Audio Visualizer",
+            href: "./apps/audioVisualizer/audio.html"
         }
 
   
